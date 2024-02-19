@@ -1,12 +1,38 @@
+// main.cpp
 #include <iostream>
 #include "calculator.h"
 
 int main() {
     Calculator calc;
-    std::cout << "5 + 3 = " << calc.add(5, 3) << std::endl;
-    std::cout << "5 - 3 = " << calc.subtract(5, 3) << std::endl;
-    std::cout << "5 * 3 = " << calc.multiply(5, 3) << std::endl;
-    std::cout << "5 / 3 = " << calc.divide(5, 3) << std::endl;
+
+    int a, b;
+    char op;
+
+    std::cout << "Enter first number, operator, second number: ";
+    std::cin >> a >> op >> b;
+
+    int result;
+    switch (op) {
+        case '+':
+            result = calc.add(a, b);
+            break;
+        case '-':
+            result = calc.subtract(a, b);
+            break;
+        case '*':
+            result = calc.multiply(a, b);
+            break;
+        case '/':
+            result = calc.divide(a, b);
+            break;
+        default:
+            std::cout << "Invalid operator!";
+            return 1;
+    }
+
+    std::cout << "Result: " << result << std::endl;
+
     return 0;
 }
+
 
